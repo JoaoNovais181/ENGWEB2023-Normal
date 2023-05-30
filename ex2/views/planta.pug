@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    .w3-card
+        .w3-header.w3-indigo
+            h1 Planta com ID #{p._id}
+        .w3-container.w3-margin 
+            
+            p #[b ID -] #{p._id}
+            p #[b Número de Registo -] #{p.Nr_Registo}
+            p #[b Código de Rua -] #{p.Cod_Rua}
+            p #[b Rua -] #{p.Rua}
+            p #[b Local -] #{p.Local}
+            p #[b Freguesia -] #{p.Freguesia}
+            p #[b Espécie -] #{p.Especie}
+            p #[b Nome Científico -] #{p.Nome_Cientifico}
+            p #[b Origem -] #{p.Origem}
+            p #[b Data de Plantação -] #{p.Data_Plantacao}
+            p #[b Estado -] #{p.Estado}
+            p #[b Caldeira -] #{p.Caldeira}
+            p #[b Tutor -] #{p.Tutor}
+            p #[b Implantação -] #{p.Implantacao}
+            p #[b Gestor -] #{p.Gestor}
+            p #[b Data de Atualização -] #{p.Data_Atualizacao}
+            p #[b Número de Intervenções -] #{p.Nr_Intervencoes}
+            a.w3-btn.w3-indigo.w3-hover-white.w3-round(href='/') Voltar
+
+        footer.w3-container.w3-indigo
+            h5 Feito por João Novais a96626

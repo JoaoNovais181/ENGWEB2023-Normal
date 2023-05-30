@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    .w3-light-grey
+        .w3-content.w3-margin-top
+            .w3-row-padding
+                .w3-third
+                    .w3-card
+                        .w3-container.w3-indigo
+                            h2 Página da Espécie #{especie}
+                        .w3-container
+                            p #[b Espécie -] #{plantas[0].Especie}
+                            p #[b Nome Científico -] #{plantas[0].Nome_Cientifico}
+                            p #[b Origem -] #{plantas[0].Origem}
+                            p #[b Data de Plantação -] #{plantas[0].Data_Plantacao}
+                            p #[b Estado -] #{plantas[0].Estado}
+                            p #[b Caldeira -] #{plantas[0].Caldeira}
+                            p #[b Tutor -] #{plantas[0].Tutor}
+                            p #[b Implantação -] #{plantas[0].Implantacao}
+                            p #[b Gestor -] #{plantas[0].Gestor}
+                            p #[b Data de Atualização -] #{plantas[0].Data_Atualizacao}
+                            p #[b Número de Intervenções -] #{plantas[0].Nr_Intervencoes}
+                .w3-twothird
+                    .w3-card
+                        .w3-container.w3-indigo
+                            h2 Plantas da Espécie #{especie}
+                        .w3-container(style={overflow: scroll})
+                                
+                            table.w3-table-all.w3-hoverable
+                                tr
+                                    th ID
+                                    th Freguesia
+                                    th Espécie
+                                    th Estado
+                                    th Número de Intervenções
+                                
+                                each p in plantas
+                                    tr
+                                        td 
+                                            
+                                            a(href='/'+p._id) #{p._id}
+                                        td= p.Freguesia
+                                        td
+                                            
+                                            a(href='/especies/' + especies.findIndex(object => object === p.Especie)) #{p.Especie}
+                                        td= p.Estado
+                                        td= p.Nr_Intervencoes

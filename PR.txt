@@ -1,0 +1,41 @@
+1.
+
+1.1. Após analisar o dataset, decidi trocar o nome de alguns campos, que são:
+
+Id -> _id
+Número de Registo -> Nr_Registo
+Código de rua -> Cod_Rua
+Espécie -> Especie
+Nome Científico -> Nome_Cientifico 
+Data de Plantação -> Data_Plantacao
+Implantação -> Implantacao
+Data de actualização -> Data_Atualizacao
+Número de intervencoes -> Nr_Intervencoes
+
+Decidi fazer essas alterações porque acho mais fácil usar no código nomes de campos que sigam a mesma estrutura
+
+Código para import para mongodb : mongoimport -d plantas -c plantas --file plantas.json --jsonArray
+
+1.2
+    1. db.plantas.find().count()
+    2. db.plantas.find({Freguesia: "São Domingos de Rana"}).count()
+    3. db.plantas.distinct("Freguesia")
+    4. db.plantas.aggregate({ $group : { _id: "$Freguesia", count: { $count: {}}}})
+    5. db.plantas.aggregate({ $group : { _id: "$Especie", count: { $count: {}}}})
+
+Instruções de Utilização:
+
+Para executar a API de dados basta entrar na diretoria 'ex1' e escrever 'npm start'
+
+Para poder usar a interface, é necessário ter primeiramente a API de dados a funcionar, e de seguida
+entrar na diretoria 'ex2' e executar o comando 'npm start', depois basta entrar num browser e ir para a rota
+pretendida, por exemplo 'http://localhost:15031/'
+
+Escolhas que fiz:
+
+Não há muita coisa a explicar sem ser como fiz a associação de um id para as espécies. Quando entramos
+na rota de index ou a primeira vez na rota de uma espécie, o servidor vai pedir à API de dados a lista
+de espécies. O mapeamento de ID's é feito com base no índice que uma dada espécie tenha nessa lista.
+
+Também posso falar na maneira que usei para analisar a queryString, que basicamente vendo se req.query.CAMPO 
+era null ou não, caso não fosse usava essa instrução, caso fosse testava a próxima.

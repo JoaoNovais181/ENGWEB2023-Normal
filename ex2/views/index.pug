@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    .w3-header.w3-indigo
+        h1 Distribuição Arbórea nalgumas freguesias portuguesas
+    .w3-container 
+
+        table.w3-table-all.w3-hoverable
+            tr
+                th ID
+                th Freguesia
+                th Espécie
+                th Estado
+                th Número de Intervenções
+            
+            each p in plantas
+                tr
+                    td 
+                        
+                        a(href='/'+p._id) #{p._id}
+                    td= p.Freguesia
+                    td
+                        
+                        a(href='/especies/' + especies.findIndex(object => object === p.Especie)) #{p.Especie}
+                    td= p.Estado
+                    td= p.Nr_Intervencoes
+    
+    footer.w3-container
+        h5 João Novais - a96626
